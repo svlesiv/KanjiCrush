@@ -40,7 +40,7 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   //
   // This method return the game state array.
   //
-  public int [][] getState(){
+  public int [][] getState() {
     return stateArray;
   }
 
@@ -50,7 +50,7 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   // This method checks if it is feasible to swap two elements in the state array.
   // If no row or column can be collapsed, do not perform the swapping.
   //
-  public void swapButtons(int i1, int j1, int i2, int j2){
+  public void swapButtons(int i1, int j1, int i2, int j2) {
 
 	// Swap locations of two elements in the state array.
     int temp = stateArray[i1][j1];
@@ -76,9 +76,9 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   // This method generates new random states (from 0 to 3)
   // for the collapsed positions represented by the maskArray.
   //
-  private void updateStateOnce(){
-    for(int i = 0; i < maskArray.length; i++){
-      for (int j = 0; j <  maskArray[i].length; j++){
+  private void updateStateOnce() {
+    for(int i = 0; i < maskArray.length; i++) {
+      for (int j = 0; j <  maskArray[i].length; j++) {
 
         if (maskArray[i][j] == 1){
           stateArray[i][j] = stateGenerator.generateElementState();
@@ -130,8 +130,8 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   //
   // This method returns true if the row can be collapsed.
   //
-  private boolean check3Horizontal(int i, int j){
-    if(stateArray[i][j] == stateArray[i][j+1] && stateArray[i][j] == stateArray[i][j+2]){
+  private boolean check3Horizontal(int i, int j) {
+    if(stateArray[i][j] == stateArray[i][j+1] && stateArray[i][j] == stateArray[i][j+2]) {
       return true;
     }
     return false;
@@ -142,8 +142,8 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   //
   // This method returns true if the column can be collapsed.
   //
-  private boolean check3Vertical(int i, int j){
-    if(stateArray[i][j] == stateArray[i+1][j] && stateArray[i][j] == stateArray[i+2][j]){
+  private boolean check3Vertical(int i, int j) {
+    if(stateArray[i][j] == stateArray[i+1][j] && stateArray[i][j] == stateArray[i+2][j]) {
       return true;
     }
     return false;
@@ -155,9 +155,9 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   // maskArray represents the positions of the collapsed elements.
   // this method populates the maskArray based on the horizontal check.
   //
-  private void checkHorizontal(){
+  private void checkHorizontal() {
 
-    for(int i = 0; i < stateArray.length; i++){
+    for(int i = 0; i < stateArray.length; i++) {
       for (int j = 0; j < 2; j++){    // iterate only twice, because winning row
     	                                // can be either 0-1-2-(3) or (0)-1-2-3
         if (check3Horizontal(i, j)){
@@ -178,12 +178,12 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   // maskArray represents the positions of the collapsed elements.
   // this method populates the maskArray based on the vertical check.
   //
-  private void checkVertical(){
+  private void checkVertical() {
 
     for(int i = 0; i < 2; i++){  // winning column can be either 0-1-2-(3) or (0)-1-2-3
-      for (int j = 0; j < stateArray[3].length; j++){
+      for (int j = 0; j < stateArray[3].length; j++) {
 
-        if (check3Vertical(i, j)){
+        if (check3Vertical(i, j)) {
           maskResultArray[stateArray[i][j]] = 1;
           maskArray[i][j] = 1;
           maskArray[i+1][j] = 1;
@@ -201,10 +201,10 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   // This method returns true if the number of winning elements
   // is equal to 4.
   //
-  public boolean isWin(){
+  public boolean isWin() {
     int counter = 0;
 
-    for (int num : maskResultArray){
+    for (int num : maskResultArray) {
       if (num == 1) counter++;
     }
 
@@ -217,7 +217,7 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   //
   // This method returns maskResultArray.
   //
-  public int [] getResultArr(){
+  public int [] getResultArr() {
     return maskResultArray;
   }
 
@@ -226,7 +226,7 @@ public class KanjiCrushBackend implements IKanjiCrushBackend {
   //
   // This method resets maskArray values.
   //
-  private void resetMask(){
+  private void resetMask() {
     maskArray = new int [][]{
                               {0,0,0,0},
                               {0,0,0,0},
