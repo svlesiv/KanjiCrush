@@ -33,12 +33,12 @@ Swap items in the state array, and reflect that state array in the frontend butt
     Second, we iterate through the state array. If we detected a row or a column that can be collapsed, populate the mask array with integer 1.
     Third, we iterate through the mask array. If we detect integer 1, return with an affirmative response - swapping is feasible.
 
-    *	If it will not collapse:
+    * If it will not collapse:
       *	swap back positions of the items in the state array;
       * reset the position of the first button in the frontend;
       * listen for button click events.
 
-    *	If it will collapse:
+    * If it will collapse:
       * update the state array;
     We will start by generating random integers (from 0 to 3) in the state array as a substitution of collapsed items, marked as integer 1 in the mask array.
     Subsequently, we will be repeating method “check if collapse” until we eliminate all items which can be collapsed.
