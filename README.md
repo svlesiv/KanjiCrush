@@ -1,14 +1,16 @@
 # Kanji Crush
 This project is an imitation of [Kanji Crush](http://www.kanjigames.com/kanji-crush.html) game. The user needs to swap two adjacent kanji buttons. The buttons will swap positions only if they match. The purpose of the game is to line up three identical kanji buttons arranged horizontally or vertically. The corresponded hieroglyph is ‘crossed off’ from the target list displayed below the game board. Moreover, the user can see abbreviated information about kanji when clicking on a button.
 
+![](./img/kanji_crush.jpg)
+
 ## Purpose
 Might be beneficial for learning Japanese hieroglyphs while playing the game.
 
 ## Flowchart of the program
-![](./img/kanji_crush.jpg)
+![](./img/flowchart.png)
 
 ## The main classes
-![](./img/flowchart.png)
+![](./img/classes.png)
 
 ## The main algorithms and data structures
 Main data structure: 
